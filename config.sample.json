@@ -1,0 +1,9 @@
+{
+  "robinhood": {
+    "username": "username",
+    "password": "password"
+  },
+  "holding_period": 5,
+  "api_endpoint": "",
+  "api_key": ""
+}
