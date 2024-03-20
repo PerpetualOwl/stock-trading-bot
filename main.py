@@ -21,10 +21,10 @@ def get_buy_tickers():
 if __name__ == "__main__":
     rh.login(config["robinhood"]["username"], config["robinhood"]["password"])
 
+    rh.cancel_all_stock_orders()
+
     total_value = float(rh.load_portfolio_profile()["market_value"])
     cash = float(rh.load_account_profile()["cash"])
-
-    print(rh.get_open_stock_positions())
 
     to_buy = get_buy_tickers()
 
