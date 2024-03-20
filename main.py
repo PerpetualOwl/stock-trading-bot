@@ -19,6 +19,9 @@ def get_buy_tickers():
     return tickers
 
 if __name__ == "__main__":
+
+    print(f"Handling Stock management on {datetime.now()}")
+
     rh.login(config["robinhood"]["username"], config["robinhood"]["password"])
 
     rh.cancel_all_stock_orders()
