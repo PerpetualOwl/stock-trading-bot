@@ -3,6 +3,7 @@ import os
 import json
 import requests
 from datetime import datetime
+from pandas.tseries.offsets import BDay
 
 base_path = os.path.abspath(os.path.dirname(__file__))
 with open(base_path+'/config.json') as config_file:
@@ -42,7 +43,7 @@ if __name__ == "__main__":
     for position in current_positions:
         f = "%Y-%m-%dT%H:%M:%S.%fZ"
         date = datetime.strptime(position["created_at"], f)
-        if (datetime.now() - date).days > holding_period:
+        if datetime.now() > date + BDay(holding_period):
             res = requests.get(position["instrument"])
             ticker = res.json()["symbol"]
             if ticker in to_buy:
